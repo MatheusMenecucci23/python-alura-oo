@@ -1,5 +1,5 @@
 from modelos.avaliacao import Avaliacao
-
+from modelos.cardapio.item_cardapio import ItemCardapio
 class Restaurante:
     restaurantes = []
     def __init__(self, nome, categoria):
@@ -8,6 +8,7 @@ class Restaurante:
         #atributo protegido _
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
 
@@ -24,6 +25,10 @@ class Restaurante:
         media = round(soma_das_notas/quantidade_de_notas, 1)
         return media            
 
+
+    def adicionar_no_cardapio(self,item):
+        if isinstance(item,ItemCardapio):
+            self._cardapio.append(item)
 
     #indicando que é um método da classe
     @classmethod
@@ -45,8 +50,19 @@ class Restaurante:
         if 0< nota <= 5:
             avaliacao = Avaliacao(cliente, nota)
             self._avaliacao.append(avaliacao)
-
-  
+    
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardapio do restaurante {self._nome}\n')
+        #
+        for i,item in enumerate(self._cardapio, start=1):
+            #se tiver o atributo has attribute
+            if hasattr(item,'descricao'):
+                mensagem_prato = f'{i}. Nome{item._nome} | Preço: R${item._preco} | Descrição: {item.descricao}'
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f'{i}. Nome{item._nome} | Preço: R${item._preco} | Descrição: {item.tamanho}'
+                print(mensagem_bebida)
 
 # #instanciando um objeto
 # restaurante_praca = Restaurante('Praça','Gourmet')
