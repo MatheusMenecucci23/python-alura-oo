@@ -33,7 +33,7 @@ A classe `Avaliacao` deve ser implementada no módulo `modelos/avaliacao.py`. Es
 
 
 
-## Explicação de `@property` e `@classmethod`
+## Explicação de `@property`, `@classmethod`,`@abstractmethod` 
 
 ### `@property`
 
@@ -45,4 +45,11 @@ A palavra-chave `@property` é usada para definir métodos em uma classe que age
 ### `@classmethod`
 
 A palavra-chave `@classmethod` é usada para definir métodos que pertencem à classe e não a uma instância específica da classe. Isso significa que o método pode acessar e modificar a classe em si e não apenas os objetos criados a partir dela.
+
+## Explicação de `@abstractmethod`
+
+### `@abstractmethod`
+
+A palavra-chave `@abstractmethod` é usada para definir métodos que devem ser implementados por qualquer subclasse derivada de uma classe abstrata. Uma classe que contém métodos abstratos não pode ser instanciada diretamente. Os métodos marcados com `@abstractmethod` obrigam as subclasses a fornecer uma implementação para esses métodos, garantindo que a interface da classe base seja seguida corretamente.
+
 
