@@ -33,7 +33,7 @@ A classe `Avaliacao` deve ser implementada no módulo `modelos/avaliacao.py`. Es
 
 
 
-## Explicação de `@property`, `@classmethod`,`@abstractmethod` 
+## Explicação de `@property` 
 
 ### `@property`
 
